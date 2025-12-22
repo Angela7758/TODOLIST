@@ -17,7 +17,8 @@ DATABASES = {
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-MIDDLEWARE.insert(
-    1,
-    "whitenoise.middleware.WhiteNoiseMiddleware"
-)
+MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    *MIDDLEWARE,
+]
